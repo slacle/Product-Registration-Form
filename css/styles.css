@@ -1,0 +1,12 @@
+form {
+  max-width: 500px;
+  margin: 2rem auto; }
+  form > div {
+    background: #fafafa;
+    border: 1px solid #eee;
+    padding: 2rem;
+    margin-bottom: 2rem; }
+  form fieldset {
+    border: 1px solid #eee; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -4,9 +4,110 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Form Validation</title>
+    <title>Product Registration Form</title>
   </head>
   <body>
-    Form Validation
+    <form>
+      <div>
+        <label for="name">Name</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="John Doe"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="jdoe@example.com"
+          required
+        />
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>Country</legend>
+          <p>
+            <input type="radio" name="country" id="usa" value="usa" required />
+            <label for="usa">USA</label>
+          </p>
+          <p>
+            <input type="radio" name="country" id="int" value="int" required />
+            <label for="int">International</label>
+          </p>
+        </fieldset>
+      </div>
+
+      <div>
+        <label for="telephone">Telephone</label>
+        <input
+          type="tel"
+          name="tel"
+          id="tel"
+          placeholder="123 456 789"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="date">Date Purchased</label>
+        <input type="date" name="date" id="date" required />
+      </div>
+
+      <div>
+        <label for="product">Select Product</label>
+        <select id="product" required>
+          <option disabled selected></option>
+          <option value="modelX">Model X</option>
+          <option value="modelY">Model Y</option>
+          <option value="modelZ">Model Z</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="serial">Serial Number</label>
+        <input
+          type="text"
+          name="serial"
+          id="serial"
+          placeholder="XXXX-XXXX-XXXX-XXXX"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="extra">Model Z Extra Options</label>
+        <select id="extra" multiple size="5" required>
+          <option value="option-one">Option One</option>
+          <option value="option-two">Option Two</option>
+          <option value="option-three">Option Three</option>
+          <option value="option-four">Option Four</option>
+          <option value="option-five">Option Five</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="photo">Photo Upload (Optional)</label>
+        <input
+          type="file"
+          name="photo"
+          id="photo"
+          accept="image/png, image/jpeg"
+        />
+      </div>
+
+      <div>
+        <input type="checkbox" name="terms" id="terms" checked required />
+        <label for="terms">I agree to the Terms & Conditions</label>
+      </div>
+
+      <button id="submit" type="submit">Submit</button>
+    </form>
   </body>
 </html>

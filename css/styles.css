@@ -1,6 +1,9 @@
 form {
   max-width: 500px;
-  margin: 2rem auto; }
+  margin: 2rem auto;
+  font-family: sans-serif; }
+  form hr {
+    margin-bottom: 2rem; }
   form > div {
     background: #fafafa;
     border: 1px solid #eee;
@@ -8,5 +11,11 @@ form {
     margin-bottom: 2rem; }
   form fieldset {
     border: 1px solid #eee; }
+  form button {
+    display: block;
+    width: 10rem;
+    margin: 0 auto;
+    padding: 1rem;
+    font-weight: bold; }
 
 /*# sourceMappingURL=styles.css.map */

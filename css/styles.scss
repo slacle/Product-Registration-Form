@@ -1,15 +1,31 @@
+$borders: 1px solid #eee;
+$spacing: 2rem;
+
 form {
   max-width: 500px;
-  margin: 2rem auto;
+  margin: $spacing auto;
+  font-family: sans-serif;
+
+  hr {
+    margin-bottom: $spacing;
+  }
 
   & > div {
     background: #fafafa;
-    border: 1px solid #eee;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    border: $borders;
+    padding: $spacing;
+    margin-bottom: $spacing;
   }
 
   fieldset {
-    border: 1px solid #eee;
+    border: $borders;
+  }
+
+  button {
+    display: block;
+    width: 10rem;
+    margin: 0 auto;
+    padding: 1rem;
+    font-weight: bold;
   }
 }

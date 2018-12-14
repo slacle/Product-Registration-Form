@@ -61,8 +61,10 @@
           type="tel"
           name="tel"
           id="tel"
-          placeholder="123 456 789"
+          placeholder="123 456 7890"
           required
+          pattern="(?:\d{1}\s)?\(?(\d{3})\)?-?\s?(\d{3})-?\s?(\d{4})"
+          title="A valid US 10 digit phone number is required."
         />
       </div>
 
@@ -89,6 +91,8 @@
           id="serial"
           placeholder="XXXX-XXXX-XXXX-XXXX"
           required
+          pattern="([a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4})"
+          title="Please enter 16 digits containing only numbers and letters. Every 4 digits separated with dashes."
         />
       </div>
 

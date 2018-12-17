@@ -18,4 +18,7 @@ form {
     padding: 1rem;
     font-weight: bold; }
 
+input.invalid {
+  border: 1px solid red; }
+
 /*# sourceMappingURL=styles.css.map */

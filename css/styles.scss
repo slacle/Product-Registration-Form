@@ -29,3 +29,7 @@ form {
     font-weight: bold;
   }
 }
+
+input.invalid {
+  border: 1px solid red;
+}

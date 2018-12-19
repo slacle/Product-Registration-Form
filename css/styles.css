@@ -1,5 +1,5 @@
 form {
-  max-width: 500px;
+  max-width: 32rem;
   margin: 2rem auto;
   font-family: sans-serif; }
   form hr {
@@ -18,7 +18,11 @@ form {
     padding: 1rem;
     font-weight: bold; }
 
-input.invalid {
-  border: 1px solid red; }
+.invalid {
+  border: 1px solid #f55; }
+
+.error-msg {
+  color: #f55;
+  margin-top: 0.5rem; }
 
 /*# sourceMappingURL=styles.css.map */

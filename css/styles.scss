@@ -1,8 +1,9 @@
 $borders: 1px solid #eee;
 $spacing: 2rem;
+$error: #f55;
 
 form {
-  max-width: 500px;
+  max-width: 32rem;
   margin: $spacing auto;
   font-family: sans-serif;
 
@@ -30,6 +31,11 @@ form {
   }
 }
 
-input.invalid {
-  border: 1px solid red;
+.invalid {
+  border: 1px solid $error;
+}
+
+.error-msg {
+  color: $error;
+  margin-top: $spacing/4;
 }

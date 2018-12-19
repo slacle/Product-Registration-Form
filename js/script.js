@@ -1,4 +1,4 @@
-// Get form to validate
+// Get the form
 const form = document.querySelector("form");
 
 // Add with JS so native validation still works if JS is not available
@@ -24,17 +24,21 @@ const getError = field => {
 
 // Validate current field
 const validateField = field => {
-  // Get message if present
-  const message = field.parentElement.querySelector(".error-msg");
+  // Toggles the invalid class as needed
+  field.classList.toggle("invalid", !field.validity.valid);
+
+  // Get message if one is present
+  const message = field.closest("div").querySelector(".error-msg");
+
+  // Check if field is valid or not
   if (field.validity.valid) {
     if (message) {
-      // If valid and still has error message, then remove it.
+      // If valid and still has error message, then remove it
       message.remove();
     }
-    // If valid and no error message, then do nothing.
+    // If valid and no error message, then do nothing
     return;
   } else {
-    // field.focus();
     // Get error message
     const error = getError(field);
 
@@ -43,10 +47,9 @@ const validateField = field => {
       message.remove();
     }
     // Insert new message
-    field.parentElement.insertAdjacentHTML(
-      "beforeend",
-      `<div class="error-msg">${error}</div>`
-    );
+    field
+      .closest("div")
+      .insertAdjacentHTML("beforeend", `<div class="error-msg">${error}</div>`);
   }
 };
 
@@ -62,9 +65,10 @@ document.addEventListener(
 );
 
 // Remove error message if correct input when typing
+// WARNING: This may not be best practice
 document.addEventListener("input", function(event) {
   const field = event.target;
-  const message = field.parentElement.querySelector(".error-msg");
+  const message = field.closest("div").querySelector(".error-msg");
   if (field.validity.valid && message) {
     message.remove();
   }
@@ -76,14 +80,21 @@ form.onsubmit = event => {
     event.preventDefault();
 
     // Create array of invalid fields
-    const haveError = [];
+    const invalidFields = [];
 
+    // Validate each field and save invalid fields to array
     for (const field of form.querySelectorAll("input, select")) {
       validateField(field);
-      if (!field.validity.valid) haveError.push(field);
+      if (!field.validity.valid) invalidFields.push(field);
     }
 
     // Focus on first invalid field
-    haveError[0].focus();
+    invalidFields[0].focus();
   }
 };
+
+//   To do:
+// - Refactor code and make it cleaner/better.
+// - Focus on radios and checkboxes.
+// - Fix bug when unselecting checkbox and having to click once before being able to submit.
+// - Do something about hiding error on input to make it more user friendly. Something like show the error again when field again invalid.

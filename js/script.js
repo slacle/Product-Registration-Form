@@ -107,6 +107,20 @@ form.onsubmit = event => {
   }
 };
 
+// Add dashed automatically and restrict to numbers and letters for Serial Number
+document.getElementById("serial").addEventListener("input", function() {
+  this.value = this.value
+    .match(/[a-zA-Z0-9]*/g)
+    .join("")
+    .match(
+      /([a-zA-Z0-9]{0,4})([a-zA-Z0-9]{0,4})([a-zA-Z0-9]{0,4})([a-zA-Z0-9]{0,4})/
+    )
+    .slice(1)
+    .join("-")
+    .replace(/-*$/g, "")
+    .toUpperCase();
+});
+
 //   To do:
 // - Focus on radios and checkboxes.
 // - Fix bug when unselecting checkbox and having to click once before being able to submit.

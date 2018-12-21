@@ -75,7 +75,7 @@
 
       <div>
         <label for="product">Select Product</label>
-        <select id="product" required>
+        <select name="product" id="product" required>
           <option disabled selected></option>
           <option value="modelX">Model X</option>
           <option value="modelY">Model Y</option>
@@ -92,13 +92,13 @@
           placeholder="XXXX-XXXX-XXXX-XXXX"
           required
           pattern="([a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4})"
-          title="Please enter 16 digits containing only numbers and letters. Every 4 digits separated with dashes."
+          title="Please enter 16 numbers and letters."
         />
       </div>
 
       <div>
         <label for="extra">Model Z Extra Options</label>
-        <select id="extra" multiple size="5" required>
+        <select name="extra" id="extra" multiple size="5" required>
           <option value="option-one">Option One</option>
           <option value="option-two">Option Two</option>
           <option value="option-three">Option Three</option>

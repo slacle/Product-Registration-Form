@@ -10,7 +10,21 @@ const getError = field => {
   const validity = field.validity;
 
   // If field is required and empty
-  if (validity.valueMissing) return "Please fill out this field.";
+  if (validity.valueMissing) {
+    if (field.name === "name") return "Please enter your name.";
+    if (field.name === "email") return "Please enter your email.";
+    if (field.name === "country")
+      return "Please choose the country of purchase.";
+    if (field.name === "tel") return "Please enter your phone number.";
+    if (field.name === "date") return "Please enter the date of purchase.";
+    if (field.name === "product") return "Please select your product.";
+    if (field.name === "serial")
+      return "Please enter the serial number of your product.";
+    if (field.name === "extra") return "Please select the 3 extra options.";
+    if (field.name === "terms")
+      return "You must agree to the Terms & Conditions.";
+    return "Please fill out this field.";
+  }
 
   // If pattern doesn't match
   if (validity.patternMismatch) return field.getAttribute("title");
@@ -94,7 +108,6 @@ form.onsubmit = event => {
 };
 
 //   To do:
-// - Refactor code and make it cleaner/better.
 // - Focus on radios and checkboxes.
 // - Fix bug when unselecting checkbox and having to click once before being able to submit.
 // - Do something about hiding error on input to make it more user friendly. Something like show the error again when field again invalid.

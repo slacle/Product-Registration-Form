@@ -104,10 +104,19 @@ form.onsubmit = event => {
 
     // Focus on first invalid field
     invalidFields[0].focus();
+  } else {
+    event.preventDefault();
+
+    // Show success message
+    form.innerHTML = `
+      <h1>Product Registration Form</h1>
+      <hr />
+      <div class="success">Your product has been registered successfully!</div>
+    `;
   }
 };
 
-// Add dashed automatically and restrict to numbers and letters for Serial Number
+// Add dashes automatically and restrict to numbers and letters for Serial Number
 document.getElementById("serial").addEventListener("input", function() {
   this.value = this.value
     .match(/[a-zA-Z0-9]*/g)

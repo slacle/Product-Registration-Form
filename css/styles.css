@@ -25,4 +25,8 @@ form {
   color: #f55;
   margin-top: 0.5rem; }
 
+.success {
+  background-color: #efd;
+  color: forestgreen; }
+
 /*# sourceMappingURL=styles.css.map */

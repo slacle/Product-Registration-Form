@@ -10,19 +10,17 @@ const getError = field => {
   const validity = field.validity;
 
   // If field is required and empty
+  // prettier-ignore
   if (validity.valueMissing) {
     if (field.name === "name") return "Please enter your name.";
     if (field.name === "email") return "Please enter your email.";
-    if (field.name === "country")
-      return "Please choose the country of purchase.";
+    if (field.name === "country") return "Please choose the country of purchase.";
     if (field.name === "tel") return "Please enter your phone number.";
     if (field.name === "date") return "Please enter the date of purchase.";
     if (field.name === "product") return "Please select your product.";
-    if (field.name === "serial")
-      return "Please enter the serial number of your product.";
+    if (field.name === "serial") return "Please enter the serial number of your product.";
     if (field.name === "extra") return "Please select the 3 extra options.";
-    if (field.name === "terms")
-      return "You must agree to the Terms & Conditions.";
+    if (field.name === "terms") return "You must agree to the Terms & Conditions.";
     return "Please fill out this field.";
   }
 
@@ -90,9 +88,9 @@ document.addEventListener("input", function(event) {
 
 // Validate on submit
 form.onsubmit = event => {
-  if (!form.checkValidity()) {
-    event.preventDefault();
+  event.preventDefault();
 
+  if (!form.checkValidity()) {
     // Create array of invalid fields
     const invalidFields = [];
 
@@ -105,8 +103,6 @@ form.onsubmit = event => {
     // Focus on first invalid field
     invalidFields[0].focus();
   } else {
-    event.preventDefault();
-
     // Show success message
     form.innerHTML = `
       <h1>Product Registration Form</h1>
@@ -128,6 +124,26 @@ document.getElementById("serial").addEventListener("input", function() {
     .join("-")
     .replace(/-*$/g, "")
     .toUpperCase();
+});
+
+// Set phone input attributes depending on selected country
+const tel = document.getElementById("tel");
+
+// prettier-ignore
+document.querySelectorAll('input[name="country"]').forEach(radio => {
+  radio.addEventListener("click", function() {
+    if (this.value === "usa") {
+      tel.setAttribute("placeholder", "123 456 7890");
+      tel.setAttribute("pattern", "(?:\\d{1}\\s)?\\(?(\\d{3})\\)?-?\\s?(\\d{3})-?\\s?(\\d{4})");
+      tel.setAttribute("title", "A valid US 10 digit phone number is required.");
+    } 
+    if (this.value === "int") {
+      tel.setAttribute("placeholder", "+1234567890");
+      tel.setAttribute("pattern", "(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\\s*[)]?[-\\s\\.]?[(]?[0-9]{1,3}[)]?([-\\s\\.]?[0-9]{3})([-\\s\\.]?[0-9]{3,4})");
+      tel.setAttribute("title", "A valid international phone number is required."
+      );
+    }
+  });
 });
 
 //   To do:

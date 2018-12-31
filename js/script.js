@@ -32,6 +32,9 @@ const getError = field => {
 
   // If name is too long
   if (validity.tooLong) return "Name should be less than 100 characters.";
+
+  // If less than 3 extra options are selected
+  if (validity.customError) return field.validationMessage;
 };
 
 // Validate current field
@@ -144,6 +147,42 @@ document.querySelectorAll('input[name="country"]').forEach(radio => {
       );
     }
   });
+});
+
+const product = document.getElementById("product");
+const extra = document.getElementById("extra");
+
+// Hide div for extra options with JS so it will be visible if JS is not available
+extra.closest("div").style.display = "none";
+
+// Show extra only when modelZ is selected
+product.addEventListener("change", function() {
+  if (product.value === "modelZ") {
+    extra.closest("div").style.display = "block";
+  } else {
+    extra.closest("div").style.display = "none";
+  }
+});
+
+// Require that exactly 3 extra options are selected
+extra.addEventListener("change", function() {
+  const selected = document.querySelectorAll("#extra option:checked");
+  const notSelected = document.querySelectorAll("#extra option:not(:checked)");
+  if (selected.length > 3) {
+    selected.forEach(option => {
+      option.selected = false;
+    });
+  } else if (selected.length >= 3) {
+    notSelected.forEach(option => {
+      option.disabled = true;
+    });
+    this.setCustomValidity("");
+  } else {
+    notSelected.forEach(option => {
+      option.disabled = false;
+    });
+    this.setCustomValidity("All 3 extra options are required.");
+  }
 });
 
 //   To do:

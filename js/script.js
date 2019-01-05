@@ -155,12 +155,14 @@ const extra = document.getElementById("extra");
 // Hide div for extra options with JS so it will be visible if JS is not available
 extra.closest("div").style.display = "none";
 
-// Show extra only when modelZ is selected
+// Show extra and make it required only when modelZ is selected
 product.addEventListener("change", function() {
   if (product.value === "modelZ") {
     extra.closest("div").style.display = "block";
+    extra.required = true;
   } else {
     extra.closest("div").style.display = "none";
+    extra.required = false;
   }
 });
 

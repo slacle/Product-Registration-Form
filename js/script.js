@@ -185,6 +185,37 @@ extra.addEventListener("change", function() {
   }
 });
 
+// Dates of products release
+const dateX = new Date("January 1, 2005");
+const dateY = new Date("January 1, 2010");
+const dateZ = new Date("January 1, 2015");
+// Today's date
+const today = new Date();
+// Get entire date picker
+const date = document.getElementById("date");
+
+const validateDate = () => {
+  const datePurchased = new Date(date.value);
+  // Adjust for time zone offsetting the date one day off.
+  datePurchased.setMinutes(
+    datePurchased.getMinutes() + datePurchased.getTimezoneOffset()
+  );
+
+  if (datePurchased > today) {
+    date.setCustomValidity("Purchase date cannot be in the future.");
+  } else if (product.value === "modelX" && datePurchased < dateX) {
+    date.setCustomValidity("Model X had not yet been released on this date.");
+  } else if (product.value === "modelY" && datePurchased < dateY) {
+    date.setCustomValidity("Model Y had not yet been released on this date.");
+  } else if (product.value === "modelZ" && datePurchased < dateZ) {
+    date.setCustomValidity("Model Z had not yet been released on this date.");
+  } else {
+    date.setCustomValidity("");
+  }
+};
+
+date.addEventListener("change", validateDate);
+
 //   To do:
 // - Focus on radios and checkboxes.
 // - Fix bug when unselecting checkbox and having to click once before being able to submit.

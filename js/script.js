@@ -215,8 +215,3 @@ const validateDate = () => {
 };
 
 date.addEventListener("change", validateDate);
-
-//   To do:
-// - Focus on radios and checkboxes.
-// - Fix bug when unselecting checkbox and having to click once before being able to submit.
-// - Do something about hiding error on input to make it more user friendly. Something like show the error again when field again invalid.

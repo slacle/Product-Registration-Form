@@ -2,7 +2,11 @@
 
 Vanilla JavaScript client side form validation using the Constraint Validation API. Native HTML5 validation fallback provides acceptable validation if JavaScript is unavailable.
 
-### Details:
+Built with modern technology for modern browsers.
+
+See it live on CodePen: https://codepen.io/slacle/pen/gZdgdM
+
+### Functionality Details:
 - All form fields are required except Photo Upload
 - Detailed error messages describing what was done wrong
 - Success message upon valid submit
